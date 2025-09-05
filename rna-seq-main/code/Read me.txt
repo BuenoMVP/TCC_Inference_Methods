@@ -1,0 +1,24 @@
+GCSTI_main code.m
+-------------------------------------------------------------------
+%%Complete code for HSMM data set operation, 
+%%including initial graph generation, graph compression, pseudo-time calculation, cell typing
+input: n×2 matrix
+output：backbone and pseudo-time ordering, cell typing
+
+mst.m
+--------------------------------------------------------------------
+%%Dijkstra algorithm
+input: n×2 matrix
+output:Initial graph
+
+DCJZ.m
+---------------------------------------------------------------------
+%%The calculation process must ensure the symmetry of the adjacency matrix, 
+%%using this function makes the matrix symmetric
+input:any matrix
+output:Symmetric matrix
+
+Gene.m
+---------------------------------------------------------------------
+%%Data preprocessing to select available genes，Take HSMMS for example
+%%Recognize variable genes
