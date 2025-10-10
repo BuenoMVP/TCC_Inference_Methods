@@ -1,8 +1,6 @@
 function [G]=creatGcmi(G,windowdatay,windowdatax1,windowdatax2,h,lamda2)  
-% 对zeroorder 网络G 通过 causation entropy过滤间接调控的边
-[~,col]=size(windowdatay);
 
-              
+[~,col]=size(windowdatay);        
 
 for i=1:col
       for j=1:col
@@ -18,7 +16,7 @@ for i=1:col
                    ce_value=0;
                    for n=1:adj_num
                         k=adj_gene_set(n);  
-                        CEscore=horderkernelcmi(windowdatay(:,j)',windowdatax1(:,i)',windowdatax2(:,i)',windowdatax1(:,k)',windowdatax2(:,k)',h);
+                        CEscore=horderkernelcmi(windowdatay(:,j)',windowdatax1(:,i)',windowdatax2(:,i)',windowdatax1(:,k)',windowdatax2(:,k),h);
                         a=CEscore ;
                         cemax=max(ce_value,a);
                    end

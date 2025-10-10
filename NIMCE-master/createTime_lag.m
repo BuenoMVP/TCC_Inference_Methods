@@ -1,5 +1,5 @@
 function [lag_matric]  = createTime_lag(expmat,sample,time_lag)
-    lag_matric={};%1表示time_lag~T时间
+    lag_matric={};
     [m,n]=size(expmat);
     for i=1:(time_lag+1)
         s_len=m/sample;
