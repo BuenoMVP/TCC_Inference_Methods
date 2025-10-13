@@ -1,0 +1,5 @@
+#files to ignore
+nextflow
+apptainer-1.4.3
+matlab
+
