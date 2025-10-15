@@ -1,0 +1,9 @@
+EnTSSR Results for Net3 Dataset
+Dataset size: 805 genes x 4510 cells
+Final weights:
+  ALRA: 0.0001
+  DCA: 0.2311
+  MAGIC: 0.2188
+  SAVER: 0.0001
+  scImpute: 0.5499
+  scRMD: 0.0001
