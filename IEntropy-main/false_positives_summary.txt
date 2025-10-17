@@ -1,0 +1,74 @@
+RESUMO DOS FALSE POSITIVES: IENTROPY vs GOLD STANDARD DREAM5
+===========================================================
+
+Dataset: net3_expression_data.tsv
+Threshold utilizado: Mediana (0.1139)
+Data da análise: 2025-10-16 19:31:12 
+
+ESTATÍSTICAS GERAIS:
+--------------------
+Total de False Positives: 5030584 
+Genes únicos envolvidos: 2256 
+Percentual das predições do IEntropy que são incorretas: 98.89 %
+Razão False Positives / True Positives: 88.73 
+
+TOP 20 GENES REGULADORES MAIS FREQUENTES:
+----------------------------------------
+ 1. G1000: 2255 conexões
+ 2. G1001: 2255 conexões
+ 3. G1005: 2255 conexões
+ 4. G1006: 2255 conexões
+ 5. G1008: 2255 conexões
+ 6. G1009: 2255 conexões
+ 7. G1010: 2255 conexões
+ 8. G1012: 2255 conexões
+ 9. G1015: 2255 conexões
+10. G1018: 2255 conexões
+
+TOP 20 GENES ALVO MAIS FREQUENTES:
+----------------------------------
+ 1. G1001: 2255 conexões
+ 2. G1005: 2255 conexões
+ 3. G1006: 2255 conexões
+ 4. G1009: 2255 conexões
+ 5. G1010: 2255 conexões
+ 6. G1012: 2255 conexões
+ 7. G1015: 2255 conexões
+ 8. G102: 2255 conexões
+ 9. G1023: 2255 conexões
+10. G1026: 2255 conexões
+
+ANÁLISE DE DENSIDADE:
+---------------------
+Média de conexões por regulador: 2229.87 
+Média de conexões por alvo: 2229.87 
+Máximo de conexões por regulador: 2255 
+Máximo de conexões por alvo: 2255 
+Desvio padrão (reguladores): 134.63 
+Desvio padrão (alvos): 35.73 
+
+DISTRIBUIÇÃO DE CONEXÕES:
+------------------------
+Reguladores:
+  Q1 (25%): 2255 
+  Mediana (50%): 2255 
+  Q3 (75%): 2255 
+
+Alvos:
+  Q1 (25%): 2179 
+  Mediana (50%): 2255 
+  Q3 (75%): 2255 
+
+INTERPRETAÇÃO:
+-------------
+- Os False Positives representam conexões que o IEntropy identificou
+  como importantes baseado na entropia intrínseca, mas que não estão
+  presentes no gold standard DREAM5
+- Estes podem ser:
+  1. Conexões verdadeiras não capturadas pelo gold standard
+  2. Conexões espúrias devido ao threshold muito permissivo
+  3. Conexões relevantes para clustering mas não para regulação direta
+- A alta proporção de False Positives (98.89%) indica que o IEntropy
+  é muito permissivo com o threshold mediana
+- Estes genes podem ainda ser biologicamente relevantes para análise
+  de expressão gênica, mesmo não estando no gold standard

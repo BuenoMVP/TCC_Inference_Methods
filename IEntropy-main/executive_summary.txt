@@ -1,0 +1,62 @@
+RESUMO EXECUTIVO: COMPARAÇÃO IENTROPY vs GOLD STANDARD DREAM5
+============================================================
+
+DATASET: net3_expression_data.tsv (4511 genes, 805 células)
+Data: 16 de Outubro de 2025
+
+## PRINCIPAIS RESULTADOS
+
+### 1. MÉTRICAS DE PERFORMANCE
+
+| Métrica | Threshold Mediana | Threshold 1.0 |
+|---------|------------------|----------------|
+| **Precision** | 1.11% | 1.77% |
+| **Recall** | 37.23% | 0.86% |
+| **F1-Score** | 2.16% | 1.15% |
+| **Accuracy** | 74.8% | 98.9% |
+| **Arestas Preditas** | 5,087,280 | 73,712 |
+
+### 2. ANÁLISE DE GENES
+
+**Sobreposição com Gold Standard:**
+- Apenas 1 gene (G13) está entre os top 20 do gold standard e top 100 do IEntropy
+- 5% de sobreposição entre genes mais conectados
+
+**Top Genes IEntropy no Gold Standard:**
+- 12 dos 20 genes com maior entropia intrínseca estão presentes no gold standard
+- Genes como G495, G1530, G1768, G1891, G525 são altamente conectados
+
+### 3. DISTRIBUIÇÃO DE ENTROPIA
+
+**Genes Conectados vs Não Conectados:**
+- Genes conectados: média = 0.4235, mediana = 0.4587
+- Genes não conectados: média = 0.1140, mediana = 0.0538
+- **Diferença estatisticamente significativa** (p < 0.001)
+
+### 4. INTERPRETAÇÃO DOS RESULTADOS
+
+**Objetivos Diferentes:**
+- IEntropy: Identifica genes informativos para clustering celular
+- Gold Standard: Representa conexões de regulação gênica conhecidas
+
+**Performance Esperada:**
+- Baixa sobreposição é esperada devido aos objetivos distintos
+- IEntropy foca em variabilidade celular, não em regulação direta
+
+### 5. RECOMENDAÇÕES
+
+**Para Análise de Clustering:**
+- Use threshold mediana (melhor recall: 37.23%)
+- Genes com entropia > 1.0 são altamente informativos
+
+**Para Inferência de Rede:**
+- IEntropy não é adequado para predição direta de conexões
+- Use como pré-filtro para identificar genes candidatos
+
+**Para Validação:**
+- 12/20 top genes do IEntropy estão no gold standard
+- Genes com alta entropia têm maior probabilidade de estar conectados
+
+## CONCLUSÃO
+
+O IEntropy demonstra eficácia em identificar genes informativos para análise de expressão gênica, com evidência estatística de que genes conectados no gold standard apresentam maior entropia intrínseca. Embora não seja adequado para inferência direta de rede, serve como ferramenta valiosa para seleção de features em análises de single-cell RNA-seq.

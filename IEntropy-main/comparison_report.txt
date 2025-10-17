@@ -1,0 +1,133 @@
+RELATÓRIO DE COMPARAÇÃO: IENTROPY vs GOLD STANDARD DREAM5
+========================================================
+
+DATASET: net3_expression_data.tsv
+Data da análise: 2025-10-16 19:12:31 
+
+1. RESUMO DOS DADOS
+===================
+Gold Standard (DREAM5): 152280 arestas
+Total de genes únicos no gold standard: 1081 
+Total de genes analisados pelo IEntropy: 4511 
+
+2. MÉTRICAS DE PERFORMANCE
+==========================
+
+2.1 Threshold Mediana (0.1139)
+------------------------------
+Arestas preditas (valor=1): 5087280 
+True Positives (TP): 56696 
+False Positives (FP): 5030584 
+False Negatives (FN): 95584 
+Precision: 0.0111 
+Recall: 0.3723 
+Specificity: 0.7509 
+F1-Score: 0.0216 
+Accuracy: 0.748 
+
+2.2 Threshold 1.0
+-----------------
+Arestas preditas (valor=1): 73712 
+True Positives (TP): 1305 
+False Positives (FP): 72407 
+False Negatives (FN): 150975 
+Precision: 0.0177 
+Recall: 0.0086 
+Specificity: 0.9964 
+F1-Score: 0.0115 
+Accuracy: 0.989 
+
+3. ANÁLISE DE GENES
+===================
+
+3.1 Genes Mais Conectados no Gold Standard (Top 20)
+---------------------------------------------------
+ 1. G10: 1220 conexões (Top 100 IEntropy: NÃO)
+ 2. G101: 1220 conexões (Top 100 IEntropy: NÃO)
+ 3. G103: 1220 conexões (Top 100 IEntropy: NÃO)
+ 4. G106: 1220 conexões (Top 100 IEntropy: NÃO)
+ 5. G107: 1220 conexões (Top 100 IEntropy: NÃO)
+ 6. G109: 1220 conexões (Top 100 IEntropy: NÃO)
+ 7. G11: 1220 conexões (Top 100 IEntropy: NÃO)
+ 8. G110: 1220 conexões (Top 100 IEntropy: NÃO)
+ 9. G113: 1220 conexões (Top 100 IEntropy: NÃO)
+10. G116: 1220 conexões (Top 100 IEntropy: NÃO)
+11. G118: 1220 conexões (Top 100 IEntropy: NÃO)
+12. G119: 1220 conexões (Top 100 IEntropy: NÃO)
+13. G120: 1220 conexões (Top 100 IEntropy: NÃO)
+14. G121: 1220 conexões (Top 100 IEntropy: NÃO)
+15. G123: 1220 conexões (Top 100 IEntropy: NÃO)
+16. G125: 1220 conexões (Top 100 IEntropy: NÃO)
+17. G127: 1220 conexões (Top 100 IEntropy: NÃO)
+18. G128: 1220 conexões (Top 100 IEntropy: NÃO)
+19. G13: 1220 conexões (Top 100 IEntropy: SIM)
+20. G138: 1220 conexões (Top 100 IEntropy: NÃO)
+
+3.2 Sobreposição de Genes
+-------------------------
+Genes no top 20 do gold standard: 20 
+Genes no top 100 do IEntropy: 100 
+Sobreposição: 1 genes
+Percentual de sobreposição: 5 %
+
+Genes em comum:
+- G13 
+
+4. ANÁLISE DE DISTRIBUIÇÃO DE ENTROPIA
+======================================
+
+4.1 Estatísticas Descritivas
+----------------------------
+Genes conectados no gold standard: 1081 
+Genes não conectados: 3430 
+
+Entropia Intrínseca - Genes Conectados:
+  Média: 0.4235 
+  Mediana: 0.4587 
+  Desvio Padrão: 0.5192 
+
+Entropia Intrínseca - Genes Não Conectados:
+  Média: 0.114 
+  Mediana: 0.0538 
+  Desvio Padrão: 0.4323 
+
+4.2 Teste Estatístico
+--------------------
+Teste t para comparar as distribuições:
+  t = 17.7523 
+  p-value = 1.96419e-64 
+  Diferença significativa: SIM 
+
+5. TOP 20 GENES DO IENTROPY
+===========================
+ 1. G3874: 2.1007 (Gold Standard: NÃO)
+ 2. G938: 2.0849 (Gold Standard: NÃO)
+ 3. G495: 1.9826 (Gold Standard: SIM)
+ 4. G159: 1.8714 (Gold Standard: NÃO)
+ 5. G1530: 1.8023 (Gold Standard: SIM)
+ 6. G4175: 1.7999 (Gold Standard: NÃO)
+ 7. G1768: 1.7636 (Gold Standard: SIM)
+ 8. G1891: 1.7520 (Gold Standard: SIM)
+ 9. G525: 1.6990 (Gold Standard: SIM)
+10. G4271: 1.6580 (Gold Standard: SIM)
+11. G3338: 1.6268 (Gold Standard: NÃO)
+12. G884: 1.6251 (Gold Standard: NÃO)
+13. G1792: 1.6154 (Gold Standard: SIM)
+14. G2572: 1.5991 (Gold Standard: NÃO)
+15. G2327: 1.5941 (Gold Standard: SIM)
+16. G329: 1.5889 (Gold Standard: SIM)
+17. G4213: 1.5762 (Gold Standard: SIM)
+18. G2808: 1.5593 (Gold Standard: SIM)
+19. G1062: 1.5565 (Gold Standard: SIM)
+20. G2314: 1.5559 (Gold Standard: SIM)
+
+6. CONCLUSÕES
+=============
+- O IEntropy identifica genes informativos para clustering, não necessariamente
+  conexões diretas de regulação gênica
+- A sobreposição com o gold standard é baixa, mas isso é esperado dado o
+  objetivo diferente do algoritmo
+- Genes com maior entropia intrínseca podem ser importantes para distinguir
+  diferentes tipos celulares ou estados
+- O threshold mediana oferece melhor recall, enquanto threshold 1.0 oferece
+  melhor precision
