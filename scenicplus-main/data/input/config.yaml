@@ -1,0 +1,29 @@
+# Configuração SCENIC+ para dataset convertido
+input_data:
+  # Dados de expressão gênica
+  GEX_anndata_fname: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/expression_matrix.tsv"
+  
+  # Dados de acessibilidade cromatina  
+  ATAC_data_fname: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/atac_matrix.tsv"
+  
+  # Metadados
+  cell_metadata_fname: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/cell_metadata.tsv"
+  gene_metadata_fname: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/gene_metadata.tsv"
+  region_metadata_fname: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/region_metadata.tsv"
+
+output_data:
+  # Arquivos de saída
+  combined_GEX_ACC_mudata: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/ACC_GEX.h5mu"
+  scplus_mdata: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/scplusmdata.h5mu"
+  eRegulons_direct: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/eRegulon_direct.tsv"
+  eRegulons_extended: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/eRegulons_extended.tsv"
+  AUCell_direct: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/AUCell_direct.h5mu"
+  AUCell_extended: "/home/marco/projects/TCC_Inference_Methods/scenicplus_output/AUCell_extended.h5mu"
+
+params_general:
+  n_cpu: 4
+  seed: 42
+
+params_data_preparation:
+  is_multiome: True
+  nr_cells_per_metacells: 10
