@@ -1,0 +1,10 @@
+metric,value
+Total_Interactions,50045.0
+Total_Genes,805.0
+Total_Cells,4511.0
+Correlation_Threshold,0.7
+Positive_Interactions,48170.0
+Negative_Interactions,1875.0
+Mean_Correlation,0.7051005553335277
+Max_Correlation,0.9908462691245363
+Min_Correlation,-0.837826339516982

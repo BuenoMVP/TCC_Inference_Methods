@@ -2,4 +2,10 @@
 nextflow
 apptainer-1.4.3
 matlab
+.cursor
 
+#large files to ignore
+#IEntropy
+ientropy_edges_binary_median.tsv
+ientropy_edges_binary_threshold1.0.tsv
+IEntropy-main/IEntropy_false_DREAM5.tsv
