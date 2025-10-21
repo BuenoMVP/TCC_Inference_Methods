@@ -1,0 +1,11 @@
+README.md
+setup.py
+SPIDE/__init__.py
+SPIDE/algo.py
+SPIDE/pipeline.py
+SPIDE/spide.py
+SPIDE/utils.py
+SPIDE.egg-info/PKG-INFO
+SPIDE.egg-info/SOURCES.txt
+SPIDE.egg-info/dependency_links.txt
+SPIDE.egg-info/top_level.txt
