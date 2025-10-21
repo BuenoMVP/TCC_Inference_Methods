@@ -24,34 +24,45 @@ pcor <- function(vars, cov_matrix) {
   }
 }
 
+# Função EMD distance
+emd <- function(dist, w1, w2) {
+  costs <- dist
+  row.signs <- rep("<", length(w1))
+  row.rhs <- w1
+  col.signs <- rep(">", length(w2))
+  col.rhs <- w2
+  t <- lp.transport(costs, "min", row.signs, row.rhs, col.signs, col.rhs)
+  flow <- t$solution
+  work <- sum(flow * dist)
+  e <- work / sum(flow)
+  return(e)
+}
 
-setwd("/home/marco/projects/TCC_Inference_Methods/scTite-main/example")
+# Função alternativa para InferPotencyStates
+InferPotencyStates <- function(potest.v, type, pheno.v) {
+  # Implementação simplificada baseada nos valores de SR
+  # Assumindo que potest.v contém os valores de SR para cada célula
+  if (type == "SR") {
+    # Normalizar os valores de SR para criar estados de potência
+    sr_values <- as.numeric(potest.v[,1])
+    sr_normalized <- (sr_values - min(sr_values)) / (max(sr_values) - min(sr_values))
+    
+    # Criar estados de potência baseados em quartis
+    quantiles <- quantile(sr_normalized, probs = c(0.25, 0.5, 0.75))
+    
+    potS <- rep(1, length(sr_normalized))
+    potS[sr_normalized > quantiles[1]] <- 2
+    potS[sr_normalized > quantiles[2]] <- 3
+    potS[sr_normalized > quantiles[3]] <- 4
+    
+    return(list(potS = potS))
+  } else {
+    # Para outros tipos, retornar estados baseados nos clusters
+    return(list(potS = pheno.v))
+  }
+}
 
-##example
-#hsmm_0.15_MAGIC_computer_SR,cell*gene,processed dataset, gene names transformed according to SR
-#hsmm_information, contain cell Classes and labels
-#hsmm_SR,SR value of cells
-#k, number of clusters
-#transfer_paramter,Transition Cell Threshold
-#startCluster,start cluster
-#isNormalized , Sort after normalized pseudo-time
-#Improve_efficiency, Whether to reduce the time cost, maybe reduce the accuracy
-
-
-data<-"hsmm_0.15_MAGIC_computer_SR.txt"
-data_filter_MAGIC<-read.table(data)
-SR_name<-"hsmm_SR.txt"
-SR_entropy<-read.table(SR_name)
-k<-4
-transfer_paramter<-0.2
-startCluster<-1
-isNormalized<-TRUE
-Improve_efficiency<-FALSE
-
-#Trajectory, contains trajectories and pseudo-time order
-Trajectory<-sctite(data_filter_MAGIC,k,SR_entropy,transfer_paramter,startCluster,isNormalized,Improve_efficiency)
-
-
+# Função principal sctite
 sctite<-function(data_filter_MAGIC,k,SR_entropy,transfer_paramter,startCluster,isNormalized,Improve_efficiency){
   
   
@@ -554,19 +565,29 @@ sctite<-function(data_filter_MAGIC,k,SR_entropy,transfer_paramter,startCluster,i
   return(Trajectory)
 }
 
-emd <- function(dist, w1, w2) {
-  costs <- dist
-  row.signs <- rep("<", length(w1))
-  row.rhs <- w1
-  col.signs <- rep(">", length(w2))
-  col.rhs <- w2
-  t <- lp.transport(costs, "min", row.signs, row.rhs, col.signs, col.rhs)
-  flow <- t$solution
-  work <- sum(flow * dist)
-  e <- work / sum(flow)
-  return(e)
-}#EMD distance
+# Configurar diretório de trabalho
+setwd("/home/marco/projects/TCC_Inference_Methods/scTite-main/example")
+
+##example
+#hsmm_0.15_MAGIC_computer_SR,cell*gene,processed dataset, gene names transformed according to SR
+#hsmm_information, contain cell Classes and labels
+#hsmm_SR,SR value of cells
+#k, number of clusters
+#transfer_paramter,Transition Cell Threshold
+#startCluster,start cluster
+#isNormalized , Sort after normalized pseudo-time
+#Improve_efficiency, Whether to reduce the time cost, maybe reduce the accuracy
 
 
+data<-"hsmm_0.15_MAGIC_computer_SR.txt"
+data_filter_MAGIC<-read.table(data)
+SR_name<-"hsmm_SR.txt"
+SR_entropy<-read.table(SR_name)
+k<-4
+transfer_paramter<-0.2
+startCluster<-1
+isNormalized<-TRUE
+Improve_efficiency<-FALSE
 
-
+#Trajectory, contains trajectories and pseudo-time order
+Trajectory<-sctite(data_filter_MAGIC,k,SR_entropy,transfer_paramter,startCluster,isNormalized,Improve_efficiency)
