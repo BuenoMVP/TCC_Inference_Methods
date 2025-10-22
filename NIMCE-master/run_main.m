@@ -3,11 +3,10 @@
 clear; clc;
 %rime clock
 tStart = tic;
-comparedata={'insilico_size100_1_timeseries';};
+comparedata={'net3_expression_data';};
 
-load (comparedata{1});
-% load (comparedata{2});
-data=insilico_size100_1_timeseries; 
+% Load TSV data
+data = dlmread('/home/marco/projects/TCC_Inference_Methods/Database/input data/net3_expression_data.tsv', '\t');
 % datatarget=colom_634_target_normal_dataexp;
 window_num=3;
 time_lag=2;
