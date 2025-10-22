@@ -1,0 +1,9 @@
+=== Resumo SPIDE vs DREAM5 ===
+
+Genes analisados: 4511
+Células analisadas: 805
+Interações inferidas pelo SPIDE: 219268
+Interações no gold standard: 284820
+Verdadeiros positivos: 1472
+Falsos positivos: 217796
+Precisão: 0.0067

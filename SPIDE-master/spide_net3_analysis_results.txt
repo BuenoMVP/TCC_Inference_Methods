@@ -1,0 +1,14 @@
+=== Análise SPIDE Net3 ===
+
+Genes analisados: 4511
+Células analisadas: 805
+Interações inferidas: 219268
+Interações no gold standard: 284820
+
+Métricas:
+Precision: 0.0067
+Recall: 0.0052
+F1-Score: 0.0058
+True Positives: 1472
+False Positives: 217796
+False Negatives: 283348
