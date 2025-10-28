@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>AEGRN</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-core -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-core</artifactId>
+            <version>5.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-algorithm -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-algorithm</artifactId>
+            <version>5.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-example -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-example</artifactId>
+            <version>5.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-experimental -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-experimental</artifactId>
+            <version>5.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-parallel -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-parallel</artifactId>
+            <version>5.11</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.uma.jmetal/jmetal-component -->
+        <dependency>
+            <groupId>org.uma.jmetal</groupId>
+            <artifactId>jmetal-component</artifactId>
+            <version>6.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testing/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-core</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+        <dependency>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.10.8</version>
+            <!-- Based on https://stackoverflow.com/questions/72128029/how-do-i-resolve-could-not-find-artifact-javax-xml-bindjaxb-apipom2-3-0-b1611 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>fully.qualified.MainClass</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
