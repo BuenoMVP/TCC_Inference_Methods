@@ -4,8 +4,8 @@
 # Compatível com o gold standard DREAM5_NetworkInference_GoldStandard_Network3.tsv
 
 # Carregar resultados do IEntropy
-results_path <- "/home/marco/projects/TCC_Inference_Methods/IEntropy-main/ientropy_net3_results.csv"
-gold_standard_path <- "/home/marco/projects/TCC_Inference_Methods/Database/gold standard/DREAM5_NetworkInference_GoldStandard_Network3.tsv"
+results_path <- "IEntropy-main/ientropy_net3_results.csv"
+gold_standard_path <- "Database/gold standard/DREAM5_NetworkInference_GoldStandard_Network3.tsv"
 
 cat("Carregando resultados do IEntropy...\n")
 ientropy_results <- read.csv(results_path, stringsAsFactors = FALSE)
@@ -62,21 +62,21 @@ cat("\nCriando arestas binárias com todos os genes...\n")
 
 # Versão 1: Threshold automático (mediana)
 edges_median <- create_binary_edges_from_entropy(ientropy_results)
-output_file1 <- "/home/marco/projects/TCC_Inference_Methods/IEntropy-main/ientropy_edges_binary_median.tsv"
+output_file1 <- "IEntropy-main/ientropy_edges_binary_median.tsv"
 write.table(edges_median, output_file1, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
 cat("Arestas binárias (threshold mediana) salvas em:", output_file1, "\n")
 cat("Número de arestas:", nrow(edges_median), "\n")
 
 # Versão 2: Threshold 1.0
 edges_threshold1 <- create_binary_edges_from_entropy(ientropy_results, threshold = 1.0)
-output_file2 <- "/home/marco/projects/TCC_Inference_Methods/IEntropy-main/ientropy_edges_binary_threshold1.0.tsv"
+output_file2 <- "IEntropy-main/ientropy_edges_binary_threshold1.0.tsv"
 write.table(edges_threshold1, output_file2, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
 cat("Arestas binárias (threshold 1.0) salvas em:", output_file2, "\n")
 cat("Número de arestas:", nrow(edges_threshold1), "\n")
 
 # Versão 3: Threshold 0.5
 edges_threshold05 <- create_binary_edges_from_entropy(ientropy_results, threshold = 0.5)
-output_file3 <- "/home/marco/projects/TCC_Inference_Methods/IEntropy-main/ientropy_edges_binary_threshold0.5.tsv"
+output_file3 <- "IEntropy-main/ientropy_edges_binary_threshold0.5.tsv"
 write.table(edges_threshold05, output_file3, sep = "\t", row.names = FALSE, col.names = FALSE, quote = FALSE)
 cat("Arestas binárias (threshold 0.5) salvas em:", output_file3, "\n")
 cat("Número de arestas:", nrow(edges_threshold05), "\n")

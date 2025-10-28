@@ -1,0 +1,60 @@
+RESUMO FINAL: IENTROPY TRUE POSITIVES CORRIGIDOS
+============================================
+
+Dataset: net3_expression_data.tsv (4511 genes, 805 células)
+Arquivo Final: IEntropy_True_DREAM5_FINAL.tsv
+Data: 23 de Outubro de 2025
+
+ESTATÍSTICAS FINAIS:
+===================
+Total de True Positives: 1.221 arestas
+Genes únicos envolvidos: 651 genes
+Precision: 0.02%
+Recall: 59.1%
+F1-Score: 0.05%
+
+VERIFICAÇÕES REALIZADAS:
+========================
+✅ Duplicatas exatas: 0 encontradas
+✅ Arestas bidirecionais: 10 pares (20 arestas)
+✅ Arestas auto-conectadas: 0 encontradas
+✅ Genes com duplo papel: 35 genes
+
+TOP GENES REGULADORES:
+=====================
+1. G55: 190 conexões
+2. G268: 116 conexões
+3. G333: 116 conexões
+4. G23: 80 conexões
+5. G92: 75 conexões
+6. G313: 58 conexões
+7. G244: 44 conexões
+8. G192: 40 conexões
+9. G281: 39 conexões
+10. G305: 28 conexões
+
+TOP GENES ALVO:
+==============
+1. G3221: 8 conexões
+2. G4125: 8 conexões
+3. G876: 8 conexões
+4. G1539: 6 conexões
+5. G1705: 6 conexões
+6. G2666: 6 conexões
+7. G3330: 6 conexões
+8. G3365: 6 conexões
+9. G796: 6 conexões
+10. G847: 6 conexões
+
+INTERPRETAÇÃO:
+=============
+- O algoritmo IEntropy identifica 1.221 conexões verdadeiras de 2.066 possíveis
+- Captura 59.1% das conexões conhecidas no gold standard
+- Baixa precisão (0.02%) indica muitas predições incorretas
+- Mais adequado para seleção de features que inferência direta de rede
+- Genes altamente conectados (G55, G268, G333) são biologicamente relevantes
+
+ARQUIVO FINAL SALVO:
+===================
+IEntropy-main/IEntropy_True_DREAM5_FINAL.tsv
+(1.221 arestas verdadeiras positivas)
